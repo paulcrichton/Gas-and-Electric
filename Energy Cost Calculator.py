@@ -1,3 +1,6 @@
+import datetime
+
+
 unit_rate_day = 30.61
 unit_rate_night = 20.28
 unit_rate_gas = 7.34
@@ -41,6 +44,12 @@ def total_cost(cost_day, cost_night, single_rate_cost, cost_gas):
     cost_single = single_rate_cost + cost_gas
     return total, cost_single
 
+def record(cost_total, cost_day, cost_night, cost_single):
+    date = str(datetime.date)
+    line = [cost_total, cost_day, cost_night, cost_single, date]
+    with open("gas_and_electric_cost_record.csv", "a") as file:
+        file.write(str(line))
+
 
 cost_gas = calculate_cost_G1(unit_rate_gas)
 cost_day, cost_night, single_rate_cost = calculate_cost_E2(unit_rate_day, unit_rate_night, unit_rate_single)
@@ -48,3 +57,4 @@ cost_day, cost_night, single_rate_cost = calculate_cost_E2(unit_rate_day, unit_r
 cost_total, cost_single = total_cost(cost_day, cost_night, single_rate_cost, cost_gas)
 
 print("Total: {}, Electric Day: {}, Electric Night: {}, Cost Single Rate: {}".format(cost_total, cost_day, cost_night, cost_single))
+record(cost_total, cost_day, cost_night, cost_single)
