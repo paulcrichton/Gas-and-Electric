@@ -31,8 +31,8 @@ def calculate_cost_E2(unit_rate_day, unit_rate_night, unit_rate_single):
     return cost_day, cost_night, single_rate_cost
 
 def calculate_cost_G1(unit_rate_gas):
-    last_meter_reading = 8802
-    next_meter_reading = 8789
+    last_meter_reading = int(input("Please Enter Last Gas Reading: "))
+    next_meter_reading = int(input("Please Enter Next Gas Reading: "))
     KWH_used = next_meter_reading - last_meter_reading
     
     cost_gas = (KWH_used * unit_rate_gas)/100
@@ -44,11 +44,10 @@ def total_cost(cost_day, cost_night, single_rate_cost, cost_gas):
     cost_single = single_rate_cost + cost_gas
     return total, cost_single
 
-def record(cost_total, cost_day, cost_night, cost_single):
-    date = str(datetime.date)
-    line = [cost_total, cost_day, cost_night, cost_single, date]
-    with open("gas_and_electric_cost_record.csv", "a") as file:
-        file.write(str(line))
+def record(cost_total, cost_day, cost_night, cost_single, cost_gas):
+    date = str(datetime.datetime.now())
+    with open("gas_and_electric_cost_record.txt", "a") as file:
+        file.write("Total: £{}, Electric Day: £{}, Electric Night: £{}, Cost Single Rate: £{}, Cost Gas: £{}\n".format(cost_total, cost_day, cost_night, cost_single, cost_gas))
 
 
 cost_gas = calculate_cost_G1(unit_rate_gas)
@@ -56,5 +55,5 @@ cost_day, cost_night, single_rate_cost = calculate_cost_E2(unit_rate_day, unit_r
 
 cost_total, cost_single = total_cost(cost_day, cost_night, single_rate_cost, cost_gas)
 
-print("Total: {}, Electric Day: {}, Electric Night: {}, Cost Single Rate: {}".format(cost_total, cost_day, cost_night, cost_single))
-record(cost_total, cost_day, cost_night, cost_single)
+print("Total: £{}, Electric Day: £{}, Electric Night: £{}, Cost Single Rate: £{}, Cost Gas: £{}".format(cost_total, cost_day, cost_night, cost_single, cost_gas))
+record(cost_total, cost_day, cost_night, cost_single, cost_gas)
