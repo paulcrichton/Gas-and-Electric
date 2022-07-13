@@ -6,10 +6,6 @@ unit_rate_night = 20.28
 unit_rate_gas = 7.34
 unit_rate_single = 27.8376
 
-
-def calculate_cost_E1(unit_rate_day, unit_rate_night):
-    last_meter_reading = 166204
-    next_meter_reading = 166236
 import pandas as pd
 import os
 
@@ -19,11 +15,6 @@ def calculate_cost_E1(unit_rate_day, unit_rate_night, next_meter_reading, last_m
     cost = (KWH_used * unit_rate_night)/100
     return cost
 
-def calculate_cost_E2(unit_rate_day, unit_rate_night, unit_rate_single):
-    last_meter_reading_night = 299723
-    next_meter_reading_night = 299510
-    last_meter_reading_day = 84394
-    next_meter_reading_day = 85262
 
 def calculate_cost_E2(unit_rate_day, unit_rate_night, unit_rate_single, next_meter_reading_day, next_meter_reading_night, last_meter_reading_day, last_meter_reading_night):
     """Calculate cost of electric meter 2"""
@@ -37,9 +28,6 @@ def calculate_cost_E2(unit_rate_day, unit_rate_night, unit_rate_single, next_met
 
     return cost_day, cost_night, single_rate_cost
 
-def calculate_cost_G1(unit_rate_gas):
-    last_meter_reading = int(input("Please Enter Last Gas Reading: "))
-    next_meter_reading = int(input("Please Enter Next Gas Reading: "))
 def calculate_cost_G1(unit_rate_gas, next_meter_reading, last_meter_reading):
     """Caculate cost of gas"""
     KWH_used = next_meter_reading - last_meter_reading
@@ -54,8 +42,6 @@ def total_cost(cost_day, cost_night, single_rate_cost, cost_gas):
     cost_single = single_rate_cost + cost_gas
     return total, cost_single
 
-def record(cost_total, cost_day, cost_night, cost_single, cost_gas):
-    date = str(datetime.datetime.now())
 def cost_record(cost_total, cost_day, cost_night, cost_single, cost_gas):
     """Write monthly cost to cost records"""
     date = datetime.date()
