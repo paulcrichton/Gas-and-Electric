@@ -1,1 +1,5 @@
-Total: £221.32399999999998, Electric Day: £265.6948, Electric Night: £-43.196400000000004, Cost Single Rate: £181.16188000000002, Cost Gas: £-1.1743999999999999
+Total: £214.8344, Electric Day: £265.6948, Electric Night: £-43.196400000000004, Cost Single Rate: £-1.1743999999999999, Cost Gas: £181.16188000000002
+Total: £202.7968, Electric Day: £265.6948, Electric Night: £-43.196400000000004, Cost Single Rate: £-13.212, Cost Gas: £169.12428000000003
+Total: £0.0, Electric Day: £0.0, Electric Night: £0.0, Cost Single Rate: £0.0, Cost Gas: £0.0
+Total: £202.7968, Electric Day: £265.6948, Electric Night: £-43.196400000000004, Cost Single Rate: £-13.212, Cost Gas: £169.12428000000003
+Total: £-127723.6644, Electric Day: £-26083.3932, Electric Night: £-60730.488000000005, Cost Single Rate: £-7213.7519999999995, Cost Gas: £-114297.20467199998

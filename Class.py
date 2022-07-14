@@ -3,7 +3,6 @@ import pandas as pd
 import os
 
 class energy_calculator:
-    """Calculates energy bills for Economy 7 Gas and electric meters"""
     
     date = datetime.datetime.now().date()
     unit_rate_day = 30.61
@@ -27,7 +26,6 @@ class energy_calculator:
     last_readings = {}
 
     def __init__(self):
-
         self.get_next_readings()
         self.get_last_readings()
 
@@ -44,17 +42,16 @@ class energy_calculator:
         self.cost_record()
 
 
-    def get_next_readings(self):
-        """Get next readings from user"""
 
+    def get_next_readings(self):
         self.next_readings["E1"] = int(input("Input next reading for E1:"))
         self.next_readings["E2_day"] = int(input("Input next meter reading E2_day:"))
         self.next_readings["E2_night"] = int(input("Input next reading for E2_night:"))
         self.next_readings["G1"] = int(input("Input next reading for G1:"))
 
     def get_last_readings(self):
-        """Get last meter reading for calculation of next months cost"""
 
+        """Get last meter reading for calculation of next months cost"""
         if os.stat('meter_readings.csv').st_size == 0:
             df_dict = {}
             for name in self.names:
@@ -71,14 +68,12 @@ class energy_calculator:
 
     def calculate_cost_E1(self, next_meter_reading, last_meter_reading):
         """Calculate cost of electric meter 1"""
-
         KWH_used = next_meter_reading - last_meter_reading
         cost = (KWH_used * self.unit_rate_night)/100
         return cost
     
     def calculate_cost_E2(self, next_meter_reading_day, last_meter_reading_day, next_meter_reading_night, last_meter_reading_night):
         """Calculate cost of electric meter 2"""
-
         KWH_used_day = next_meter_reading_day - last_meter_reading_day
         cost_day = (KWH_used_day * self.unit_rate_day)/100
         
@@ -91,7 +86,6 @@ class energy_calculator:
     
     def calculate_cost_G1(self, next_meter_reading, last_meter_reading):
         """Caculate cost of gas"""
-
         KWH = 11.25
         KWH_used = (next_meter_reading - last_meter_reading)*KWH
         
@@ -101,12 +95,12 @@ class energy_calculator:
     
     def calculate_total_cost(self):
         """calculate cost of day rate, night rate and gas combined and single tarrif rate and gas combined """
-
         self.total = self.E1_cost + self.E2_cost_day + self.E2_cost_night + self.G1_cost
         self.single_rate_total = self.E2_single_rate_cost + self.G1_cost
 
  
     def add_meter_readings(self, E1, E2_day, E2_night, G1):
+        
         """Add inputted meter readings to records"""
 
         date = datetime.datetime.now().date()
@@ -124,7 +118,6 @@ class energy_calculator:
 
     def cost_record(self):
         """Write monthly cost to cost records"""
-
         with open("gas_and_electric_cost_record.txt", "a") as file:
             file.write("Total: £{}, Electric Day: £{}, Electric Night: £{}, Cost Single Rate: £{}, Cost Gas: £{}\n".format(self.total, self.E2_cost_day, self.E2_cost_night, self.G1_cost, self.single_rate_total, self.date))
             print("Total: £{}, Electric Day: £{}, Electric Night: £{}, Cost Gas: £{}, Cost Single Rate: £{}\n".format(self.total, self.E2_cost_day, self.E2_cost_night, self.G1_cost, self.single_rate_total, self.date))
