@@ -131,4 +131,6 @@ class energy_calculator:
 
 
 
-test = energy_calculator()
+if __name__ == '__main__':
+    calculator = energy_calculator()
+    
