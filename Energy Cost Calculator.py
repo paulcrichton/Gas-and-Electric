@@ -10,6 +10,7 @@ class energy_calculator:
     unit_rate_night = 20.28
     unit_rate_gas = 7.34
     unit_rate_single = 27.8376
+    vat_rate = 0.05 # 5% vat
     
     names = ["E1", "E2_day", "E2_night", "G1", "Date"]
     
@@ -128,6 +129,16 @@ class energy_calculator:
         with open("gas_and_electric_cost_record.txt", "a") as file:
             file.write("Total: £{}, Electric Day: £{}, Electric Night: £{}, Cost Single Rate: £{}, Cost Gas: £{}\n".format(self.total, self.E2_cost_day, self.E2_cost_night, self.G1_cost, self.single_rate_total, self.date))
             print("Total: £{}, Electric Day: £{}, Electric Night: £{}, Cost Gas: £{}, Cost Single Rate: £{}\n".format(self.total, self.E2_cost_day, self.E2_cost_night, self.G1_cost, self.single_rate_total, self.date))
+
+    def calculate_vat(self):
+        """Calculate Vat on all meters"""
+
+        E1_vat = self.E1_cost * self.vat_rate
+        E2_vat = (self.E2_cost_day + self.E2_cost_night) * self.vate_rate
+        G1_vat = self.G1_cost * self.vat_rate
+
+        return E1_vat, E2_vat, G1_vat
+
 
 
 

@@ -3,5 +3,11 @@ Total: £202.7968, Electric Day: £265.6948, Electric Night: £-43.196400000000004,
 Total: £0.0, Electric Day: £0.0, Electric Night: £0.0, Cost Single Rate: £0.0, Cost Gas: £0.0
 Total: £202.7968, Electric Day: £265.6948, Electric Night: £-43.196400000000004, Cost Single Rate: £-13.212, Cost Gas: £169.12428000000003
 Total: £-127723.6644, Electric Day: £-26083.3932, Electric Night: £-60730.488000000005, Cost Single Rate: £-7213.7519999999995, Cost Gas: £-114297.20467199998
+<<<<<<< Updated upstream
 Total: £68349.2087, Electric Day: £119830.4975, Electric Night: £-50893.4712, Cost Single Rate: £-581.328, Cost Gas: £38536.345896
 Total: £-195870.0763, Electric Day: £-145648.1959, Electric Night: £-9880.2132, Cost Single Rate: £-6645.6359999999995, Cost Gas: £-152664.426288
+=======
+Total: £-6938.5414, Electric Day: £368.8505, Electric Night: £-32.650800000000004, Cost Single Rate: £-7268.2515, Cost Gas: £-6977.626956
+Total: £7141.3382, Electric Day: £-103.1557, Electric Night: £-10.5456, Cost Single Rate: £7255.0395, Cost Gas: £7146.751236
+Total: £113.7013, Electric Day: £103.1557, Electric Night: £10.5456, Cost Single Rate: £0.0, Cost Gas: £108.288264
+>>>>>>> Stashed changes
